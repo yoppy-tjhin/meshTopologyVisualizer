@@ -27,31 +27,6 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
 
-class Serial():
-
-    def read_from_port(self, ser):
-        while True:
-            lock = threading.Lock()
-            lock.acquire()
-            line = ser.readline()  # read a '\n' terminated line
-            #print (line)
-            lock.release()
-            time.sleep(0.5)
-            #print (line)
-            if line:
-                #print(line.decode('utf-8'))
-                line_json = re.search(r"\s([{\[].*?[}\]])$", line.decode('utf-8'))
-                if (line_json != None):
-                    lock.acquire()
-                    print( line_json.group(1) )
-                    lock.release()
-                #print(line)
-
-
-    def run_serial_thread(self):
-        serial_port = serial.Serial('COM13', 115200, timeout=0)
-        thread = threading.Thread(target=self.read_from_port, args=(serial_port,))
-        thread.start()
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)

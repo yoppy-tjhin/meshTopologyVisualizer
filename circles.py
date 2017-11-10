@@ -134,7 +134,7 @@ class Ui_MainWindow(object):
             y = self.mainY/2 - self.nodeRadius
             width = self.nodeDiam + 1   # offset needed to fully contain the circle
             height = self.nodeDiam + 1  # offset needed to fully contain the circle
-            print (x,y,width,height)
+            #print (x,y,width,height)
             self.label.setGeometry(QtCore.QRect(x, y, width, height))
             self.label.setObjectName("label" + str(k))
 

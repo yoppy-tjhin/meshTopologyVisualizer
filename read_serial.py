@@ -1,37 +1,63 @@
-import serial, re, json
-import threading
-import serial.tools.list_ports
+import re, serial, time, threading
+import list_comports
 
-#ser = serial.Serial('COM13', 115200, timeout=0)
 
-# while(1):
-#     line = ser.readline()  # read a '\n' terminated line
-#     if line:
-#         #print(line.decode('utf-8'))
-#         line_json = re.search(r"\s([{\[].*?[}\]])$", line.decode('utf-8'))
-#         if (line_json != None):
-#             print( line_json.group(1) )
-#         #print('next')
+class Serial:
 
-serial_port = serial.Serial('COM13', 115200, timeout=0)
+    def __init__(self, comPort=None, baudRate=115200):
+        if comPort != None:
+            self.comPort = comPort
+        else:
+            for port in list_comports.serial_ports():
+                if port != 'COM1':
+                    self.comPort = port
 
-def handle_data(data):
-    print(data)
+        self.baudRate = baudRate
+        self.ser = serial.Serial(self.comPort, self.baudRate, timeout=0)
 
-def read_from_port(ser):
-    while True:
-        line = ser.readline()  # read a '\n' terminated line
-        #print (line)
-        if line:
-            #print(line.decode('utf-8'))
-            line_json = re.search(r"\s([{\[].*?[}\]])$", line.decode('utf-8'))
-            if (line_json != None):
-                pass
-                #print( line_json.group(1) )
-            print(line)
+        # TODO: if serial port not found
 
-thread = threading.Thread(target=read_from_port, args=(serial_port,))
-thread.start()
+    # return JSON Strings only
+    def read_json_string(self):
+        # UNCOMMENT while for use in threading mode
+        #while True:
+            #lock = threading.Lock()
+            #lock.acquire()
+            line = self.ser.readline()  # read a '\n' terminated line
+            #print (line)
+            #lock.release()
+            #print (line)
+            if line :                       # check if the serial bytes is not empty
+                line_json = re.search(r"\s([{\[].*?[}\]])$", line.decode('utf-8'))      # only take JSON strings
+                if line_json != None:       # check if it is a JSON string
+                    return line_json.group(1)
+                else:
+                    return None             # when it is not a JSON string
+            else:
+                return None
+                # if (line_json != None):
+                #     lock.acquire()
+                #     print( line_json.group(1) )
+                #     lock.release()
+            #time.sleep(0.5)
 
-while True:
-    pass
+    def run_serial_thread(self):
+        #serial_port = serial.Serial(self.comPort, self.baudRate, timeout=0)
+        #thread = threading.Thread(target=self.read_from_port, args=(serial_port,))     # example, with args
+        thread = threading.Thread(target=self.read_from_port)
+        thread.start()
+
+# call with:
+# Serial() --> default COM port: first available PORT other than COM1. default baudRate: 115200
+# or Serial(comport = 'COM12', baudRate = 115200)
+# or Serial (comport = 'COM12')
+# or Serial (baudRate = '115200)
+#ser = Serial()
+#ser.run_serial_thread()
+
+# for standalone testing
+# while True:
+#     jsonString = ser.read_json_string()
+#     if jsonString != None:
+#         print (jsonString)
+#     time.sleep(0.5)
