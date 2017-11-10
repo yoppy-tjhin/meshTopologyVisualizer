@@ -3,7 +3,7 @@ import BitArray2D
 from BitArray2D import godel
 from read_serial import Serial
 
-class NodeMapping(object):
+class NodeMapping:
 
     meshTopo = """[
     {
@@ -27,57 +27,56 @@ class NodeMapping(object):
         ]
     }
 ]"""
-    def __init__(self):
-        self.data = json.loads(NodeMapping.meshTopo)
-        self.x_map_size = 11
-        self.y_map_size = 11
+    # TODO: more parameters init may be needed
+    def __init__(self, xMapSize=15, yMapSize=15):
+        #self.data = json.loads(NodeMapping.meshTopo)
+        self.xMapSize = xMapSize
+        self.yMapSize = yMapSize
 
-        self.init_node = [int(self.x_map_size / 2), int(self.y_map_size / 2)]                   # initial node position
-        self.init_direction = [0,1]                                                             # initial direction vector
-        self.node_map = BitArray2D.BitArray2D(rows=self.x_map_size, columns=self.y_map_size)    # create 2D bit array of node map
-        self.node_map[int(self.x_map_size / 2), int(self.y_map_size / 2)] = 1                             # initialize the center node
-        self.relation_list = []                                                                 # list holding all relations
+        self.initNode = [int(self.xMapSize / 2), int(self.yMapSize / 2)]                   # initial node position
+        self.initDirection = [0, 1]                                                        # initial direction vector
+        self.nodeMap = BitArray2D.BitArray2D(rows=self.xMapSize, columns=self.yMapSize)    # create 2D bit array of node map
+        self.nodeMap[int(self.xMapSize / 2), int(self.yMapSize / 2)] = 1                   # initialize the starting node position at the window CENTER
+        self.relationList = []                                                             # list holding all relations
 
-        self.serialObj = None
+    # """
+    # Initializing serial port.
+    # :return: serialObj
+    # """
+    # def init_serial(self, comPort=None, baudRate=115200):
+    #     serialObj = Serial(comPort, baudRate)
+    #     return serialObj
 
-    def init_serial(self, comPort=None, baudRate=115200):
-        self.serialObj = Serial(comPort, baudRate)
-        return self.serialObj
-    # def node_mapping_serial(self):
-    #     self.serialObj
-
-    def find_empty_position(self,neighbourNodeId, current_node, direction, node_map, relation_list):
-        found = 0                                                                   # indication that an empty is found
-        all_dir = [ [1,0], [0,1], [-1,0], [0,-1] ]                                  # define North, East, West, South direction vectors
-        new_node = [current_node[0]+direction[0], current_node[1]+direction[1] ]    # try a new spot according to the preferred direction
-        all_dir.remove(direction)                                                   # remove the used direction
+    def find_empty_position(self, neighbourNodeId, currentNode, direction, nodeMap, relationList):
+        found = 0                                                                       # indication that an empty is found
+        allDir = [[1, 0], [0, 1], [-1, 0], [0, -1]]                                     # define North, East, West, South direction vectors
+        newNode = [currentNode[0] + direction[0], currentNode[1] + direction[1]]        # try a new spot according to the preferred direction
+        allDir.remove(direction)                                                        # remove the used direction
 
         # if available, take it
-        if not node_map[ godel (new_node[0], new_node[1]) ]:
+        if not nodeMap[ godel (newNode[0], newNode[1])]:
 
-            node_map[new_node] = 1                                                  # update node_map. the new_node is now taken
-            relation_list.append( [current_node[:], new_node[:]] )                  # put the relation in the list
-            current_node[:] = new_node                                              # update current_node
-                                                                                    # direction unchanged
+            nodeMap[newNode] = 1                                        # update node_map. the new_node is now taken
+            relationList.append([currentNode[:], newNode[:]])           # put the relation in the list
+            currentNode[:] = newNode                                    # update current_node
+                                                                        # direction unchanged
             found = 1
             #pass
-            #pass # got new node. update node_map, etc.. RETURN
 
         # otherwise, try other directions
         else:
             # try every other direction until find an empty one
-            for dir in all_dir:
-                new_node = [current_node[0]+dir[0], current_node[1]+dir[1]]         # try a new spot
+            for dir in allDir:
+                newNode = [currentNode[0] + dir[0], currentNode[1] + dir[1]]         # try a new spot
 
                 # Got a empty spot. Take it
-                if not node_map[ godel( new_node[0], new_node[1])]:
-                    node_map[new_node] = 1                                          # update node_map. the new_node is now taken
-                    relation_list.append([current_node[:], new_node[:]])            # put the relation in the list
-                    current_node[:] = new_node                                      # update current_node
+                if not nodeMap[ godel(newNode[0], newNode[1])]:
+                    nodeMap[newNode] = 1                                          # update node_map. the new_node is now taken
+                    relationList.append([currentNode[:], newNode[:]])            # put the relation in the list
+                    currentNode[:] = newNode                                      # update current_node
                     direction[:] = dir                                              # update the preferred direction
                     found = 1
                     break
-                    #pass # got new node. update node_map, etc, RETURN
 
         # TODO: Cannot find an empty spot
         # if (found == 0):
@@ -104,7 +103,7 @@ class NodeMapping(object):
         # else:
         #     return obj
             #print (obj)
-            #pass
+
 
 
 # UNCOMMENT below to test the function separately
@@ -150,22 +149,21 @@ node_map = BitArray2D.BitArray2D(rows=x_map_size, columns=y_map_size)    # creat
 node_map[int(x_map_size / 2), int(y_map_size / 2)] = 1                             # initialize the center node
 relation_list = []
 
-nodeMapping = NodeMapping()
-serialObj = nodeMapping.init_serial()
-
-while True:
-    jsonString = serialObj.read_json_string()
-    if jsonString != None:
-        print (jsonString)
-        break
-    time.sleep(0.5)
-
-#nodeMapping.recursive_node_mapping(data, init_node, init_direction, node_map, relation_list)
-jsonString = json.loads(jsonString)
-
-nodeMapping.recursive_node_mapping(jsonString, init_node, init_direction, node_map, relation_list)
-print (relation_list)
-print (node_map)
+# nodeMapping = NodeMapping()
+# serialObj = nodeMapping.init_serial()
+# while True:
+#     jsonString = serialObj.read_json_string()
+#     if jsonString != None:
+#         print (jsonString)
+#         break
+#     time.sleep(0.5)
+#
+# #nodeMapping.recursive_node_mapping(data, init_node, init_direction, node_map, relation_list)
+# jsonString = json.loads(jsonString)
+#
+# nodeMapping.recursive_node_mapping(jsonString, init_node, init_direction, node_map, relation_list)
+# print (relation_list)
+# print (node_map)
 
 
 

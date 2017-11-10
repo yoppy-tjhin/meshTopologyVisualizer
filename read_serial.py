@@ -19,7 +19,7 @@ class Serial:
 
     # return JSON Strings only
     def read_json_string(self):
-        # UNCOMMENT while for use in threading mode
+        # UNCOMMENT 'while' for use in threading mode
         #while True:
             #lock = threading.Lock()
             #lock.acquire()
@@ -43,8 +43,8 @@ class Serial:
 
     def run_serial_thread(self):
         #serial_port = serial.Serial(self.comPort, self.baudRate, timeout=0)
-        #thread = threading.Thread(target=self.read_from_port, args=(serial_port,))     # example, with args
-        thread = threading.Thread(target=self.read_from_port)
+        #thread = threading.Thread(target=self.read_json_string, args=(serial_port,))     # example, with args
+        thread = threading.Thread(target=self.read_json_string())
         thread.start()
 
 # call with:
@@ -52,10 +52,10 @@ class Serial:
 # or Serial(comport = 'COM12', baudRate = 115200)
 # or Serial (comport = 'COM12')
 # or Serial (baudRate = '115200)
-#ser = Serial()
+# ser = Serial()
 #ser.run_serial_thread()
 
-# for standalone testing
+#for standalone testing
 # while True:
 #     jsonString = ser.read_json_string()
 #     if jsonString != None:

@@ -11,6 +11,10 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 
+from read_serial import Serial
+from node_mapping import NodeMapping
+import threading, time, re
+
 class Ui_MainWindow(object):
     #changedValue = pyqtSignal(int)
 
@@ -169,3 +173,50 @@ class Ui_MainWindow(object):
         for k in range(self.currentNumOfNodes):
             self.label_list[k].show()
 
+    # Running task
+    def node_visualizer_task(self, serialPort):
+
+        nodeMapping = NodeMapping()
+        # relation_list = nodeMapping.recursive_node_mapping()
+        # self.drawLine(relation_list)
+        # self.drawNodes(relation_list)
+
+        # UNCOMMENT 'while' for use in threading mode
+        while True:
+            #lock = threading.Lock()
+            #lock.acquire()
+            jsonString = serialPort.read_json_string()  # read a '\n' terminated line
+            if jsonString != None:  print (jsonString)
+            #nodeMapping.recursive_node_mapping(jsonString)
+            # print (line)
+            # lock.release()
+            # print (line)
+            # if line:  # check if the serial bytes is not empty
+            #     line_json = re.search(r"\s([{\[].*?[}\]])$", line.decode('utf-8'))  # only take JSON strings
+            #     if (line_json != None):
+            #         # lock.acquire()
+            #         print( line_json.group(1) )
+            #         # lock.release()
+            # time.sleep(0.5)         # when it is not a JSON string
+            # else:
+            #     return None
+            # if (line_json != None):
+            #     lock.acquire()
+            #     print( line_json.group(1) )
+            #     lock.release()
+            time.sleep(0.5)
+
+    def run_node_visualizer_thread(self, serialPort):
+        # serial_port = serial.Serial(self.comPort, self.baudRate, timeout=0)
+        # thread = threading.Thread(target=self.read_from_port, args=(serial_port,))     # example, with args
+        thread = threading.Thread(target=self.node_visualizer_task, args=( serialPort,))
+        thread.start()
+
+
+    # """
+    # Initializing serial port.
+    # :return: serialObj
+    # """
+    # def init_serial(self, comPort=None, baudRate=115200):
+    #     serialObj = Serial(comPort, baudRate)
+    #     return serialObj

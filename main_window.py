@@ -1,5 +1,6 @@
 import re, sys, time, threading
 import serial
+from read_serial import Serial
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from circles import Ui_MainWindow
@@ -33,7 +34,8 @@ if __name__ == "__main__":
     window = MyApp()
     window.show()
     serialPort = Serial()
-    serialPort.run_serial_thread()
+    window.run_node_visualizer_thread(serialPort)
+    #serialPort.run_serial_thread()
     sys.exit(app.exec_())
 
 
