@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f8d4f8bc-d7e2-4e82-ba0f-e5a0bd6b0e50" name="Default" comment="- Read serial is working&#10;- Node mapping is working&#10;- Draw circles and lines is working&#10;&#10;- Class Serial() has been made&#10;- Class NodeMapping() has been made&#10;- Serial() has been integrated in NodeMapping() &#10;&#10;+ Integrate NodeMapping in GUI&#10;+ Draw mesh topology according to relation_list[]">
+    <list default="true" id="f8d4f8bc-d7e2-4e82-ba0f-e5a0bd6b0e50" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/circles.py" afterPath="$PROJECT_DIR$/circles.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_window.py" afterPath="$PROJECT_DIR$/main_window.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_mapping.py" afterPath="$PROJECT_DIR$/node_mapping.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/read_serial.py" afterPath="$PROJECT_DIR$/read_serial.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -71,8 +67,8 @@
       <file leaf-file-name="circles.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/circles.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-85">
-              <caret line="184" column="19" lean-forward="true" selection-start-line="184" selection-start-column="19" selection-end-line="184" selection-end-column="19" />
+            <state relative-caret-position="68">
+              <caret line="193" column="64" lean-forward="true" selection-start-line="193" selection-start-column="64" selection-end-line="193" selection-end-column="64" />
               <folding>
                 <element signature="e#195#237#0" expanded="true" />
                 <element signature="e#1015#1035#0" expanded="false" />
@@ -313,7 +309,14 @@
       <option name="project" value="LOCAL" />
       <updated>1510301321283</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="- Read serial is working&#10;- Node mapping is working&#10;- Draw circles and lines is working&#10;&#10;- Class Serial() has been made&#10;- Class NodeMapping() has been made&#10;- Serial() has been integrated in NodeMapping() &#10;&#10;+ Integrate NodeMapping in GUI&#10;+ Draw mesh topology according to relation_list[]">
+      <created>1510314816005</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1510314816006</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -706,8 +709,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/circles.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-85">
-          <caret line="184" column="19" lean-forward="true" selection-start-line="184" selection-start-column="19" selection-end-line="184" selection-end-column="19" />
+        <state relative-caret-position="68">
+          <caret line="193" column="64" lean-forward="true" selection-start-line="193" selection-start-column="64" selection-end-line="193" selection-end-column="64" />
           <folding>
             <element signature="e#195#237#0" expanded="true" />
             <element signature="e#1015#1035#0" expanded="false" />
