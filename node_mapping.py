@@ -83,6 +83,7 @@ class NodeMapping:
         pass
 
     def recursive_node_mapping(self, obj, current_node_pos, direction, node_map, relation_list):
+        #TODO: paramters' value can be defaulted to None. Then check if None, assign to predefined values. Otherwise, assign to the passed in values
 
         # if the object is a dictionary, then it contains its one nodeId, and its one subconnection list
         if isinstance(obj, dict):
@@ -90,7 +91,7 @@ class NodeMapping:
             neighbourNodeId = obj["nodeId"]
             # find empty position in node_mapping, update current_node, update direction, update relation_list
             self.find_empty_position(neighbourNodeId, current_node_pos, direction, node_map, relation_list)
-            print (neighbourNodeId)
+            #print (neighbourNodeId)
 
             # go into the node's subconnections
             for item in obj["subs"]:
@@ -139,7 +140,7 @@ meshTopo = """[
         ]
     }
 ]"""
-data = json.loads(NodeMapping.meshTopo)
+jsonString = json.loads(NodeMapping.meshTopo)
 x_map_size = 11
 y_map_size = 11
 
@@ -150,6 +151,7 @@ node_map[int(x_map_size / 2), int(y_map_size / 2)] = 1                          
 relation_list = []
 
 # nodeMapping = NodeMapping()
+
 # serialObj = nodeMapping.init_serial()
 # while True:
 #     jsonString = serialObj.read_json_string()
@@ -159,8 +161,8 @@ relation_list = []
 #     time.sleep(0.5)
 #
 # #nodeMapping.recursive_node_mapping(data, init_node, init_direction, node_map, relation_list)
-# jsonString = json.loads(jsonString)
-#
+#jsonString = json.loads(data)
+
 # nodeMapping.recursive_node_mapping(jsonString, init_node, init_direction, node_map, relation_list)
 # print (relation_list)
 # print (node_map)

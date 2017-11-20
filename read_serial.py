@@ -13,7 +13,7 @@ class Serial:
                     self.comPort = port
 
         self.baudRate = baudRate
-        self.ser = serial.Serial(self.comPort, self.baudRate, timeout=0)
+        self.ser = serial.Serial(self.comPort, self.baudRate, timeout=1)
 
         # TODO: if serial port not found
 
@@ -41,11 +41,11 @@ class Serial:
                 #     lock.release()
             #time.sleep(0.5)
 
-    def run_serial_thread(self):
-        #serial_port = serial.Serial(self.comPort, self.baudRate, timeout=0)
-        #thread = threading.Thread(target=self.read_json_string, args=(serial_port,))     # example, with args
-        thread = threading.Thread(target=self.read_json_string())
-        thread.start()
+    # def run_serial_thread(self):
+    #     #serial_port = serial.Serial(self.comPort, self.baudRate, timeout=0)
+    #     #thread = threading.Thread(target=self.read_json_string, args=(serial_port,))     # example, with args
+    #     thread = threading.Thread(target=self.read_json_string())
+    #     thread.start()
 
 # call with:
 # Serial() --> default COM port: first available PORT other than COM1. default baudRate: 115200
@@ -57,7 +57,12 @@ class Serial:
 
 #for standalone testing
 # while True:
+#     if (ser.ser.is_open==0):
+#         ser.ser.open()
 #     jsonString = ser.read_json_string()
 #     if jsonString != None:
 #         print (jsonString)
-#     time.sleep(0.5)
+#         print(ser.ser.inWaiting())
+#         ser.ser.close()
+#     time.sleep(0.3)
+

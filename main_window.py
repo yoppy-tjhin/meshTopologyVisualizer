@@ -2,6 +2,7 @@ import re, sys, time, threading
 import serial
 from read_serial import Serial
 
+
 from PyQt5 import QtCore, QtGui, QtWidgets
 from circles import Ui_MainWindow
 from firstgui import Ui_myfirstgui
@@ -32,9 +33,13 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     window = MyApp()
+
+    # serialPort = Serial()
+    #window.run_node_visualizer_thread(serialPort)
+    # thread = threading.Thread(target=window.nodeVisualizerTest)
+    # thread.start()
+    #window.nodeVisualizerTest()
     window.show()
-    serialPort = Serial()
-    window.run_node_visualizer_thread(serialPort)
     #serialPort.run_serial_thread()
     sys.exit(app.exec_())
 
