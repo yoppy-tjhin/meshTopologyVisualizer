@@ -17,6 +17,9 @@ class Serial:
 
         # TODO: if serial port not found
 
+    def getSerialSetting(self):
+        return 'Port: ' + str(self.comPort) + '. Baud rate: ' + str(self.baudRate)
+
     # return JSON Strings only
     def read_json_string(self):
         # UNCOMMENT 'while' for use in threading mode
