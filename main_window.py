@@ -1,6 +1,6 @@
 import re, sys, time, threading
 import serial
-from read_serial import Serial
+from serial_rw import Serial
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets

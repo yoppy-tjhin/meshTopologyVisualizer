@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import networkx as nx
 
-from read_serial import Serial
+from serial_rw import Serial
 
 # class NodeMapping:
 #
