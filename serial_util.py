@@ -25,17 +25,34 @@ def read_json_string(ser):
         #lock = threading.Lock()
         #lock.acquire()
         line = ser.readline()  # read a '\n' terminated line
-        #print (line)
-        #lock.release()
         print (line)
-        if line :                       # check if the serial bytes is not empty
-            line_json = re.search(r"\s([{\[].*?[}\]])$", line.decode('utf-8'))      # only take JSON strings
+        #lock.release()
+
+        line = line.decode('utf-8')
+        if 'MeshTopology' in line :                       # check if the serial bytes is not empty
+            line_json = re.search(r"\s([{\[].*?[}\]])$", line)      # only take JSON strings
+            #print (line_json.group(1))
             if line_json != None:       # check if it is a JSON string
-                return line_json.group(1)
+                return 'MeshTopology', line_json.group(1)
             else:
-                return None             # when it is not a JSON string
+                return None, None             # when it is not a JSON string
+
+        elif 'query-reply' in line:
+            line_json = re.search(r"\s([{\[].*?[}\]])$", line)  # only take JSON strings
+            if line_json != None:  # check if it is a JSON string
+                return 'query-reply', line_json.group(1)
+            else:
+                return None, None  # when it is not a JSON string
+
+        elif 'myFreeMemory-reply' in line:
+            #line_json = re.search(r"\s([{\[].*?[}\]])$", line)  # only take JSON strings
+            #if line != None:  # check if it is a JSON string
+            return 'myFreeMem', line
+            #else:
+            #    return None, None  # when it is not a JSON string
+
         else:
-            return None
+            return None, None
             # if (line_json != None):
             #     lock.acquire()
             #     print( line_json.group(1) )

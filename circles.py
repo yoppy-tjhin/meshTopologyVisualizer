@@ -14,21 +14,17 @@ from PyQt5.QtGui import *
 import dialog
 import serial_util as su
 from node_mapping import recursive_node_mapping
-import time, re, json
+import json
 
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
 
-import numpy as np
-import matplotlib.pyplot as plt
 import networkx as nx
-import random
 
 class Ui_MainWindow(object):
-    #changedValue = pyqtSignal(int)
 
     def setupUi(self, MainWindow):
-        MainWindow.setObjectName("ESP8266 Mesh Network Topology Visualizer")
+        MainWindow.setObjectName("ESP8266 Mesh Network Visualizer")
         self.mainX = 600
         self.mainY = 600
         MainWindow.resize(self.mainX, self.mainY)
@@ -52,13 +48,19 @@ class Ui_MainWindow(object):
         self.toolbar = NavigationToolbar(self.canvas, self)
 
         # init and open serial port
-        self.ser_ref = su.init_serial(comPort='COM12')
+        self.ser_ref = su.init_serial(comPort='COM31')
+
+        # References of dialog boxes appearing upon clicking nodes
+        self.singleDial = None
+        self.bcDial = None
 
         # create a thread to read from serial:
         # - for checking mesh topology changes. whenever there is a change, the mesh is redrawn
         # - for receiving replies from other nodes
         ser_read_thread = SerialThread(self.ser_ref)
-        ser_read_thread.updateNode.connect(self.redrawMesh)
+        ser_read_thread.updateNodeSig.connect(self.redrawMesh)
+        ser_read_thread.queryReplySig.connect(self.forwardQueryReply)
+        ser_read_thread.myFreeMemSig.connect(self.forwardMyFreeMem)
         ser_read_thread.start()
 
         #define lineEdit
@@ -164,23 +166,29 @@ class Ui_MainWindow(object):
 
             if nodeId=='Me':
                 #self.showdialogBroadcast( nodeId )
-                bcDial = dialog.BroadcastDialog()
-                bcDial.popUp(self.ser_ref,nodeId)
+                self.bcDial = dialog.BroadcastDialog()
+                self.bcDial.popUp(self.ser_ref,nodeId)
             else:
                 #self.showdialogSingle( nodeId )
-                singleDial = dialog.SingleDialog()
-                singleDial.popUp(self.ser_ref, nodeId)
+                self.singleDial = dialog.SingleDialog()
+                self.singleDial.popUp(self.ser_ref, nodeId)
 
             #print('cont: ' + str(cont) )
 
+    def forwardQueryReply(self, queryReply):
+        self.singleDial.query_reply(queryReply)
+
+    def forwardMyFreeMem(self, freeMemMsg):
+        self.bcDial.displayMyFreeMem(freeMemMsg)
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "ESP8266 Mesh Network Topology Visualizer"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "ESP8266 Mesh Network Visualizer"))
         #self.label.setText(_translate("MainWindow", "TextLabel"))
         #self.label_2.setText(_translate("MainWindow", "TextLabel"))
 
     def write_serial(self):
-        self.ser_ref.write(b'{ "id":2147321632, "query":["temp", "time", "date"] }\n')
+        self.ser_ref.write(b'{ "dest-id":2147321632, "query":["temp", "time", "date"] }\n')
 
     def redrawMesh(self, graph):
 
@@ -202,7 +210,9 @@ class Ui_MainWindow(object):
 
 class SerialThread(QtCore.QThread):
     #updateNode = QtCore.pyqtSignal(int)
-    updateNode = QtCore.pyqtSignal(object)
+    updateNodeSig = QtCore.pyqtSignal(object)
+    queryReplySig = QtCore.pyqtSignal(object)
+    myFreeMemSig = QtCore.pyqtSignal(object)
 
     def __init__(self, ser_ref):
         QtCore.QThread.__init__(self)
@@ -228,8 +238,15 @@ class SerialThread(QtCore.QThread):
     def updateNetworkxGraph(self, meshString):
 
         graph = nx.Graph()
-        jsonString = json.loads(meshString)
-        recursive_node_mapping(jsonString, 'Me', graph)
+        try:
+            jsonString = json.loads(meshString)
+        except ValueError:
+            print('Not a valid JSON Object')
+
+        if (jsonString.__len__() == 0):
+            graph.add_node('Me')
+        else:
+            recursive_node_mapping(jsonString, 'Me', graph)
 
         return graph
 
@@ -239,8 +256,7 @@ class SerialThread(QtCore.QThread):
         while True:
 
             while True:
-                jsonString = su.read_json_string(self.serialPort)  # read a '\n' terminated line
-                #print (jsonString)
+                msgType, jsonString = su.read_json_string(self.serialPort)  # read a '\n' terminated line
                 if jsonString != None:
                     break
                 #self.sleep(0.1)
@@ -253,17 +269,24 @@ class SerialThread(QtCore.QThread):
 
             #TODO: check what kind of JSON string: meshTopology, nodeReply, etc.
             #print(jsonString)
-
-            if "subs" in jsonString:    # it is meshTopology
+            if (msgType == 'MeshTopology'):
+            #if (True):
+                #if "subs" in jsonString:    # it is meshTopology
                 if self.oldJsonString != jsonString:
-                    print(jsonString)
+                    #print(jsonString)
+
                     graph = self.updateNetworkxGraph(jsonString)
                     self.oldJsonString = jsonString
-                    self.updateNode.emit(graph)
+                    self.updateNodeSig.emit(graph)
 
                     self.sleep(1)
 
+            elif (msgType == 'query-reply'):
+                self.queryReplySig.emit(jsonString)
+                #self.sleep(1)
 
+            elif (msgType == 'myFreeMem'):
+                self.myFreeMemSig.emit(jsonString)
 # class ChangeNodeThread(QtCore.QThread):
 #     updateNode = QtCore.pyqtSignal(int)
 #

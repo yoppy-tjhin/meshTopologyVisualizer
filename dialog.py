@@ -2,6 +2,7 @@
 from PyQt5.QtCore import *
 from PyQt5.QtGui import QIntValidator
 from PyQt5.QtWidgets import *
+import re
 
 import serial_util as su
 import json
@@ -11,6 +12,9 @@ class BroadcastDialog:
         self.timerLE.setValidator(QIntValidator(0, 1001))
         self.brightLE = QLineEdit()
         self.brightLE.setValidator(QIntValidator(0, 101))
+        self.timerLabel = QLabel()
+        self.brightLabel = QLabel()
+        self.freeMemLabel = QLabel()
 
     def popUp(self,serialRef, nodeId ):
         d = QDialog()
@@ -26,20 +30,21 @@ class BroadcastDialog:
         setFormGroupBox.setLayout(setFormLayout)
         setBtn.clicked.connect(lambda: self.set_write_serial(serialRef))
 
-        queryFormGroupBox = QGroupBox("Query Parameters of All Nodes")  # TODO: including Me
+        queryFormGroupBox = QGroupBox("Parameters of Node 'Me'")  # TODO: including Me
         queryFormLayout = QFormLayout()
-        timerLabel = QLabel()
-        brightLabel = QLabel()
+
+
         queryBtn = QPushButton("Query")
-        queryFormLayout.addRow(QLabel("Timer:"), timerLabel)
-        queryFormLayout.addRow(QLabel("Brightness:"), brightLabel)
+        #queryFormLayout.addRow(QLabel("Timer (minutes):"), self.timerLabel)
+        #queryFormLayout.addRow(QLabel("Brightness:"), self.brightLabel)
+        queryFormLayout.addRow(QLabel("Free Memory (Bytes):"), self.freeMemLabel)
         queryFormLayout.addRow(queryBtn)
         queryFormGroupBox.setLayout(queryFormLayout)
         queryBtn.clicked.connect(lambda: self.query_write_serial(serialRef))
 
         layout = QVBoxLayout()
         layout.addWidget(setFormGroupBox)
-        layout.addWidget(queryFormGroupBox)
+        layout.addWidget(queryFormGroupBox)        # for the moment, broadcast query is not relevant
         layout.addWidget(doneButton)
 
         d.setLayout(layout)
@@ -69,12 +74,30 @@ class BroadcastDialog:
             print ('Please fill both fields')
 
     def query_write_serial(self, serRef):
-        msgDict = {"dest-id":1, "query":["timer", "brightness"]}
-        msgStr = json.dumps(msgDict) + "\n"
-        msgStr = msgStr.encode('iso-8859-15')
+        # msgDict = {"dest-id":1, "query":["timer", "brightness"]}
+        # msgStr = json.dumps(msgDict) + "\n"
+        # msgStr = msgStr.encode('iso-8859-15')
+
         # msg = b'{ "id":1, "set":["Node name", "Brightness"] }\n'
+        msgStr = "myFreeMemory-query\n"
+        msgStr =  msgStr.encode('iso-8859-15')
         print(msgStr)
         serRef.write(msgStr)
+
+    def displayMyFreeMem(self, freeMem):
+
+        # queryReplyJson = json.loads(freeMem)
+        # queryReplyContent = queryReplyJson['query-reply']
+        #
+        # timer = queryReplyContent.get('timer', 'None')
+        # print (timer)
+        # brightness = queryReplyContent.get('brightness', 'None')
+        # print(brightness)
+        # freeMem = queryReplyContent.get('freeMem', 'None')
+        # print(freeMem)
+
+
+        self.freeMemLabel.setText( str( int("".join(filter(str.isdigit, freeMem))))  )
 
 class SingleDialog:
     def __init__(self):
@@ -82,6 +105,9 @@ class SingleDialog:
         self.timerLE.setValidator(QIntValidator(0, 1001))
         self.brightLE = QLineEdit()
         self.brightLE.setValidator(QIntValidator(0, 101))
+        self.timerLabel = QLabel()
+        self.brightLabel = QLabel()
+        self.freeMemLabel = QLabel()
 
     def popUp(self,serialRef, nodeId ):
         d = QDialog()
@@ -99,11 +125,11 @@ class SingleDialog:
 
         queryFormGroupBox = QGroupBox("Query Parameters of " + str(nodeId))
         queryFormLayout = QFormLayout()
-        timerLabel = QLabel()
-        brightLabel = QLabel()
+
         queryBtn = QPushButton("Query")
-        queryFormLayout.addRow(QLabel("Timer:"), timerLabel)
-        queryFormLayout.addRow(QLabel("Brightness:"), brightLabel)
+        queryFormLayout.addRow(QLabel("Timer (minutes):"), self.timerLabel)
+        queryFormLayout.addRow(QLabel("Brightness:"), self.brightLabel)
+        queryFormLayout.addRow(QLabel("Free Memory (Bytes):"), self.freeMemLabel)
         queryFormLayout.addRow(queryBtn)
         queryFormGroupBox.setLayout(queryFormLayout)
         queryBtn.clicked.connect(lambda: self.query_write_serial(serialRef, nodeId))
@@ -148,3 +174,18 @@ class SingleDialog:
         serRef.write(msgStr)
 
         #msg = "{ \"id\":%s, \"query\":[\"timer\", \"brightness\"] }" % (nodeId)
+
+    def query_reply(self, queryReply):
+        queryReplyJson = json.loads(queryReply)
+        queryReplyContent = queryReplyJson['query-reply']
+
+        timer = queryReplyContent.get('timer', 'None')
+        print (timer)
+        brightness = queryReplyContent.get('brightness', 'None')
+        print(brightness)
+        freeMem = queryReplyContent.get('freeMem', 'None')
+        print(freeMem)
+
+        self.timerLabel.setText( str(timer) )
+        self.brightLabel.setText(str(brightness))
+        self.freeMemLabel.setText( str(freeMem) )
