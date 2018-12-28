@@ -1,7 +1,7 @@
 import sys
 
 from PyQt5 import QtGui, QtWidgets
-from circles import Ui_MainWindow
+from top import Ui_MainWindow
 
 class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self):

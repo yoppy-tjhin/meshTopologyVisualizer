@@ -1,12 +1,7 @@
 # -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'circles.ui'
-#
 # Created by: PyQt5 UI code generator 5.5.1
-#
-# WARNING! All changes made in this file will be lost!
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
@@ -16,6 +11,7 @@ import serial_util as su
 from node_mapping import recursive_node_mapping
 import json
 
+# For embedding matplotlib(used for plotting NetworkX graph) navigation toolbar on our app window
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
 
@@ -31,10 +27,8 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
 
-        # a figure instance to plot on
-        # self.figure = plt.figure()
         self.figure, self.node_collection = self.setupPlot()  # yoppy
-        self.i = 1
+
         # this is the Canvas Widget that displays the `figure`
         # it takes the `figure` instance as a parameter to __init__
         self.canvas = FigureCanvas(self.figure)
@@ -48,7 +42,9 @@ class Ui_MainWindow(object):
         self.toolbar = NavigationToolbar(self.canvas, self)
 
         # init and open serial port
-        self.ser_ref = su.init_serial(comPort='COM31')
+        # SET COMxx to the corresponding serial port number used by the ESP
+        self.comPortNum = 'COM31'
+        self.ser_ref = su.init_serial(comPort=self.comPortNum)
 
         # References of dialog boxes appearing upon clicking nodes
         self.singleDial = None
@@ -63,36 +59,36 @@ class Ui_MainWindow(object):
         ser_read_thread.myFreeMemSig.connect(self.forwardMyFreeMem)
         ser_read_thread.start()
 
-        #define lineEdit
+        # For testing purpose, define a lineEdit. It accepts only 2-digit numeric
+        # It was used to test redrawing number of circles according to the number given in the lineEdit
+        # Not used anymore
         self.lineEdit = QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(30, 230, 60, 20))
         self.lineEdit.setMaxLength(2)
         self.lineEdit.setAlignment(Qt.AlignLeft)
-        #self.lineEdit.setFont(QFont("Arial", 20))
         self.lineEdit.setValidator(QIntValidator())
         # Setting a connection between slider position change and on_changed_value function
-        self.lineEdit.returnPressed.connect(self.redrawMesh)
+        # self.lineEdit.returnPressed.connect(self.redrawMesh)
 
-        #define label for serial setting
+        # define label for showing serial port settings
         self.serialSettingLabel = QLabel(self.centralwidget)
         serialSetting = 'Port: ' + str(self.ser_ref.port) + '. Baud rate: ' + str(self.ser_ref.baudrate)
         self.serialSettingLabel.setText(serialSetting)
 
-        # create a test button
+        # Create a test button
+        # Used for sending commands to serial port
         self.testButton = QPushButton()
         self.testButton.setText('Test Button')
         self.testButton.clicked.connect(self.write_serial)
 
+        # self.menubar = QtWidgets.QMenuBar(MainWindow)
+        # self.menubar.setGeometry(QtCore.QRect(0, 0, 571, 25))
+        # self.menubar.setObjectName("menubar")
+        # MainWindow.setMenuBar(self.menubar)
+        # self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        # self.statusbar.setObjectName("statusbar")
+        # MainWindow.setStatusBar(self.statusbar)
 
         MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
-
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 571, 25))
-        self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
 
         layout = QVBoxLayout()
         layout.addWidget(self.toolbar)
@@ -106,32 +102,11 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def setupPlot(self):
-        ''' plot some random stuff '''
-        # random data
-        # data = [random.random() for i in range(10)]
-        #
-        # # instead of ax.hold(False)
-        # # self.figure.clear()
-        # #
-        # # # create an axis
-        # # ax = self.figure.add_subplot(111)
-        # #
-        # # # discards the old graph
-        # # # ax.hold(False) # deprecated, see above
-        # #
-        # # # plot data
-        # # ax.plot(data, '*-')
-        # #
-        # # # refresh canvas
-        # # self.canvas.draw()
-        #
-        #self.G.add_node(1)
-        #graph = [202]
-        # extract nodes from graph
-        #nodes = set([n1 for n1, n2 in graph] + [n2 for n1, n2 in graph])
+
         # create networkx graph
         self.G = nx.Graph()
         self.G.add_node(1)
+
         # add nodes
         # for node in nodes:
         #     self.G.add_node(node)
@@ -142,11 +117,18 @@ class Ui_MainWindow(object):
 
         #self.pos = nx.shell_layout(self.G)
 
+        # draw() is in nx_pylab.py
+        # By default draw() returns nothing. draw() is modified to return cf & node_collection
+        # Because we need cf (plot figure reference) here to embed it on our top app window
+        # node_collection is used when we need to detect whether a node is clicked
         cf, node_collection = nx.draw(self.G)
 
         return cf, node_collection
 
     # on clicking UI
+    # We want to detect when a node on the plot is clicked. Just a simple interactive session.
+    # If node 'Me' is clicked, open Broadcast dialog box which send/read to all other nodes
+    # Other than node 'Me', meaning we want to interact with that particular node
     def onclick(self,event):
         cont, ind = self.node_collection.contains(event)
         # when a node is clicked
@@ -175,9 +157,12 @@ class Ui_MainWindow(object):
 
             #print('cont: ' + str(cont) )
 
+    # Not sure if this is the best way
+    # To forward signal from class SerialThread to class SingleDialog
     def forwardQueryReply(self, queryReply):
         self.singleDial.query_reply(queryReply)
 
+    # To forward signal from class SerialThread to class BroadcastDialog
     def forwardMyFreeMem(self, freeMemMsg):
         self.bcDial.displayMyFreeMem(freeMemMsg)
 
@@ -187,6 +172,7 @@ class Ui_MainWindow(object):
         #self.label.setText(_translate("MainWindow", "TextLabel"))
         #self.label_2.setText(_translate("MainWindow", "TextLabel"))
 
+    # For testing purpose. Execute this function when the Test button is pressed.
     def write_serial(self):
         self.ser_ref.write(b'{ "dest-id":2147321632, "query":["temp", "time", "date"] }\n')
 
@@ -194,13 +180,15 @@ class Ui_MainWindow(object):
 
         self.figure.clear()
 
-        # self.G.add_edge(self.i, self.i+1)
-        # self.i += 1
         self.G = graph
         val_map = {'Me': 'gold'}
+
+        # If node 'Me' exists, use 'gold'. Otherwise 'violet'
         values = [val_map.get(node, 'violet') for node in self.G.nodes()]
 
         self.pos = nx.spring_layout(self.G)
+
+        # This NetworkX draw() is modified to return cf and node_collection. By default, return nothing.
         cf, node_collection = nx.draw(self.G, self.pos, node_size=500, with_labels=True, node_color=values, width=1, edge_color='lightblue',
                      font_weight='regular', font_family='Trebuchet MS', font_color='black')
         self.canvas.figure = cf
@@ -216,7 +204,6 @@ class SerialThread(QtCore.QThread):
 
     def __init__(self, ser_ref):
         QtCore.QThread.__init__(self)
-        self.i = 1
         self.serialPort = ser_ref
         self.oldJsonString = None
 
@@ -243,6 +230,7 @@ class SerialThread(QtCore.QThread):
         except ValueError:
             print('Not a valid JSON Object')
 
+        # If mesh string is empty, draw node 'Me' only
         if (jsonString.__len__() == 0):
             graph.add_node('Me')
         else:
@@ -255,23 +243,18 @@ class SerialThread(QtCore.QThread):
 
         while True:
 
+            # Wait for new string from serial port
             while True:
                 msgType, jsonString = su.read_json_string(self.serialPort)  # read a '\n' terminated line
                 if jsonString != None:
                     break
-                #self.sleep(0.1)
-                #print('in serial_read_thread')
-            #if jsonString != None:
-            #self.serialPort.ser.flushInput()        #TODO: may be deleted, because there are several JSON strings: meshTopology, node replies
 
-            # uncomment to deliberately redraw mesh every time serial is received
+            # Please uncomment to deliberately redraw mesh every time serial is received
+            # Otherwise, the figure is only redrawn when there is a change in the mesh topology
             #self.oldJsonString = None
 
-            #TODO: check what kind of JSON string: meshTopology, nodeReply, etc.
-            #print(jsonString)
             if (msgType == 'MeshTopology'):
-            #if (True):
-                #if "subs" in jsonString:    # it is meshTopology
+                # Check if the mesh topology has changed
                 if self.oldJsonString != jsonString:
                     #print(jsonString)
 
@@ -287,6 +270,7 @@ class SerialThread(QtCore.QThread):
 
             elif (msgType == 'myFreeMem'):
                 self.myFreeMemSig.emit(jsonString)
+
 # class ChangeNodeThread(QtCore.QThread):
 #     updateNode = QtCore.pyqtSignal(int)
 #
@@ -302,19 +286,3 @@ class SerialThread(QtCore.QThread):
 
 
 
-# """
-# Initializing serial port.
-# :return: serialObj
-# """
-# def init_serial(self, comPort=None, baudRate=115200):
-#     serialObj = Serial(comPort, baudRate)
-#     return serialObj
-
-# test = Ui_MainWindow()
-# relationList, nodeMap = test.nodeMapping()
-# print (relationList)
-# print (nodeMap)
-#
-# for x in range(nodeMap.size()[0]):
-#     for y in range(nodeMap.size()[1]):
-#         print (nodeMap[ godel(x,y)])

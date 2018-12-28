@@ -1,4 +1,4 @@
-import re, serial, time, threading
+import re, serial
 import list_comports
 
 def init_serial(comPort=None, baudRate=115200):
@@ -6,7 +6,7 @@ def init_serial(comPort=None, baudRate=115200):
         ser = serial.Serial(comPort, baudRate, timeout=1)
         return ser
 
-    # below is implicitly elseif
+    # If comPort is not provided, use what are available, except 'COM1'. This is just the case in my PC.
     for port in list_comports.serial_ports():
         if port != 'COM1':
             comPort = port                  # the first found port other than COM1
@@ -19,6 +19,7 @@ def init_serial(comPort=None, baudRate=115200):
 #     return 'Port: ' + str(self.comPort) + '. Baud rate: ' + str(self.baudRate)
 
 # return JSON Strings only
+
 def read_json_string(ser):
     # UNCOMMENT 'while' for use in threading mode
     #while True:
@@ -26,23 +27,24 @@ def read_json_string(ser):
         #lock.acquire()
         line = ser.readline()  # read a '\n' terminated line
         print (line)
-        #lock.release()
 
         line = line.decode('utf-8')
-        if 'MeshTopology' in line :                       # check if the serial bytes is not empty
+
+        # The keyword 'MeshTopology', 'query-reply', etc. correspond to what are sent from the ESP serial
+        if 'MeshTopology' in line :                                 # process lines containing 'MeshTopology'
             line_json = re.search(r"\s([{\[].*?[}\]])$", line)      # only take JSON strings
             #print (line_json.group(1))
-            if line_json != None:       # check if it is a JSON string
-                return 'MeshTopology', line_json.group(1)
+            if line_json != None:                                   # check that json string extraction is successful
+                return 'MeshTopology', line_json.group(1)           # return message-type, message-content
             else:
-                return None, None             # when it is not a JSON string
+                return None, None                                   # if json string extraction is unsuccessful
 
-        elif 'query-reply' in line:
-            line_json = re.search(r"\s([{\[].*?[}\]])$", line)  # only take JSON strings
-            if line_json != None:  # check if it is a JSON string
+        elif 'query-reply' in line:                                 # process lines containing 'query-reply'
+            line_json = re.search(r"\s([{\[].*?[}\]])$", line)      # only take JSON strings
+            if line_json != None:                                   # check that json string extraction is successful
                 return 'query-reply', line_json.group(1)
             else:
-                return None, None  # when it is not a JSON string
+                return None, None                                   # if json string extraction is unsuccessful
 
         elif 'myFreeMemory-reply' in line:
             #line_json = re.search(r"\s([{\[].*?[}\]])$", line)  # only take JSON strings

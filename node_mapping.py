@@ -1,9 +1,10 @@
-import json, time
-import matplotlib.pyplot as plt
-import numpy as np
-import networkx as nx
-
-from serial_rw import Serial
+import json
+# import time
+# import matplotlib.pyplot as plt
+# import numpy as np
+# import networkx as nx
+#
+# from serial_rw import Serial
 
 # class NodeMapping:
 #
@@ -215,17 +216,18 @@ from serial_rw import Serial
 
 
 def recursive_node_mapping(obj, currentNodeId, graph):
-    #TODO: paramters' value can be defaulted to None. Then check if None, assign to predefined values. Otherwise, assign to the passed in values
+    #TODO: paramters' value can be defaulted to None. Check if None, then assign predefined values. Otherwise, assign the passed in values
 
-    # if the object is a dictionary, then it contains its one nodeId, and its one subconnection list
+    # if the object is a dictionary, then it contains a "nodeId", and its "subs" subconnection list
     if isinstance(obj, dict):
         # direct neighbour of the current_node
         neighbourNodeId = obj["nodeId"]
+
         # find empty position in node_mapping, update current_node, update direction, update relation_list
         #self.find_empty_position(neighbourNodeId, current_node_pos, direction, node_map, relation_list)
+
         print (neighbourNodeId)
         graph.add_edge(currentNodeId, neighbourNodeId)
-
 
         # go into the node's subconnections
         for item in obj["subs"]:

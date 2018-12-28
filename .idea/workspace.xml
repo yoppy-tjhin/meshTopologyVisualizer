@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f8d4f8bc-d7e2-4e82-ba0f-e5a0bd6b0e50" name="Default" comment="- Read serial is working&#10;- Node mapping is working&#10;* OMITTED: Draw circles and lines is working&#10;&#10;- Class Serial() has been made&#10;- Class NodeMapping() has been made&#10;- Class GetMeshFromSerialThread() instantiates Serial and function recursiveNodeMapping&#10;- Added serial setting label&#10;- Combine PyQt with Networkx in a window. Works well.&#10;&#10;- Added class BroadcastDialog and SingleDialog popups when a node is clicked on the GUI.&#10;- Added Set and Query functions on the popup dialogs, and tested together with ESP8266. They work! &#10;&#10;TODO:&#10;- interpret the set-reply and query-reply&#10;- query-reply should be added to the node's properties&#10;&#10;NOTES:&#10;- ESP8266 occasionally gives wrong mesh json string. The nodes mesh is much more complex than the actual. Observed, it happens when nodes are connected and disconnected&#10;+">
+    <list default="true" id="f8d4f8bc-d7e2-4e82-ba0f-e5a0bd6b0e50" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/circles.py" afterPath="$PROJECT_DIR$/circles.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dialog.py" afterPath="$PROJECT_DIR$/dialog.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_window.py" afterPath="$PROJECT_DIR$/main_window.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_mapping.py" afterPath="$PROJECT_DIR$/node_mapping.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serial_util.py" afterPath="$PROJECT_DIR$/serial_util.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/circles.py" afterPath="$PROJECT_DIR$/top.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,13 +20,14 @@
       <file leaf-file-name="serial_util.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/serial_util.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-510">
-              <caret line="10" column="23" lean-forward="false" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+            <state relative-caret-position="339">
+              <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding>
-                <element signature="e#0#34#0" expanded="true" />
-                <element signature="e#701#746#0" expanded="false" />
-                <element signature="e#2129#2154#0" expanded="false" />
-                <element signature="e#2294#2324#0" expanded="false" />
+                <element signature="e#0#17#0" expanded="true" />
+                <element signature="e#590#615#0" expanded="false" />
+                <element signature="e#757#802#0" expanded="false" />
+                <element signature="e#2585#2610#0" expanded="false" />
+                <element signature="e#2750#2780#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -35,61 +36,46 @@
       <file leaf-file-name="node_mapping.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node_mapping.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="373" column="66" lean-forward="false" selection-start-line="373" selection-start-column="66" selection-end-line="373" selection-end-column="66" />
+            <state relative-caret-position="289">
+              <caret line="230" column="0" lean-forward="true" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
               <folding>
-                <element signature="e#0#17#0" expanded="true" />
-                <element signature="e#122#142#0" expanded="false" />
+                <element signature="e#12#25#0" expanded="false" />
+                <element signature="e#139#159#0" expanded="false" />
+                <element signature="e#11547#12418#0" expanded="false" />
+                <element signature="e#12431#14288#0" expanded="false" />
+                <element signature="e#14326#14346#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nx_pylab.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="nx_pylab.py" pinned="false" current-in-tab="true">
         <entry file="file://D:/Master/WinPython-64bit-3.5.4.0Qt5/python-3.5.4.amd64/Lib/site-packages/networkx/drawing/nx_pylab.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="387" column="24" lean-forward="false" selection-start-line="387" selection-start-column="24" selection-end-line="387" selection-end-column="24" />
+            <state relative-caret-position="116">
+              <caret line="264" column="19" lean-forward="true" selection-start-line="264" selection-start-column="19" selection-end-line="264" selection-end-column="19" />
               <folding>
                 <element signature="e#1021#2682#1" expanded="false" />
-                <element signature="e#3517#7542#1" expanded="false" />
-                <element signature="e#8589#10886#1" expanded="false" />
+                <element signature="e#3586#7611#1" expanded="false" />
+                <element signature="e#8658#10955#1" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.py" pinned="false" current-in-tab="false">
-        <entry file="file://D:/Master/WinPython-64bit-3.5.4.0Qt5/python-3.5.4.amd64/Lib/site-packages/networkx/drawing/layout.py">
+      <file leaf-file-name="top.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/top.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="112" column="38" lean-forward="false" selection-start-line="112" selection-start-column="38" selection-end-line="112" selection-end-column="38" />
+            <state relative-caret-position="1809">
+              <caret line="260" column="52" lean-forward="false" selection-start-line="260" selection-start-column="33" selection-end-line="260" selection-end-column="52" />
               <folding>
-                <element signature="e#735#766#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="circles.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/circles.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!doc" expanded="false" />
-                <element signature="e#195#237#0" expanded="true" />
-                <element signature="e#1467#1498#0" expanded="false" />
-                <element signature="e#4076#5159#0" expanded="false" />
-                <element signature="e#4115#4128#0" expanded="false" />
-                <element signature="e#4857#4868#0" expanded="false" />
-                <element signature="e#5219#6233#0" expanded="false" />
-                <element signature="e#5330#5393#0" expanded="false" />
-                <element signature="e#6622#6680#0" expanded="false" />
-                <element signature="e#6914#7575#0" expanded="false" />
-                <element signature="e#6943#6978#0" expanded="false" />
-                <element signature="e#7617#11354#0" expanded="false" />
-                <element signature="e#7955#7983#0" expanded="false" />
+                <element signature="e#69#104#0" expanded="true" />
+                <element signature="e#3375#3422#0" expanded="false" />
+                <element signature="e#4307#4318#0" expanded="false" />
+                <element signature="e#5354#5417#0" expanded="false" />
+                <element signature="e#6828#6886#0" expanded="false" />
+                <element signature="e#8327#8355#0" expanded="false" />
+                <element signature="e#10799#10840#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -98,24 +84,23 @@
       <file leaf-file-name="dialog.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dialog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1207">
-              <caret line="78" column="30" lean-forward="false" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
+            <state relative-caret-position="158">
+              <caret line="86" column="8" lean-forward="false" selection-start-line="86" selection-start-column="8" selection-end-line="86" selection-end-column="8" />
               <folding>
                 <element signature="e#1#27#0" expanded="true" />
                 <element signature="e#199#485#0" expanded="false" />
+                <element signature="e#3869#7423#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main_window.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main_window.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main_window.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="51">
+              <caret line="3" column="8" lean-forward="false" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -131,11 +116,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>random</find>
-      <find>draw_networkx_labels</find>
-      <find>layo</find>
-      <find>centralwidget</find>
-      <find>i am</find>
       <find>setup</find>
       <find>self.figure</find>
       <find>node_collection</find>
@@ -161,6 +141,11 @@
       <find>singleDial</find>
       <find>forwardMyFreeMem</find>
       <find>com</find>
+      <find>yoppy</find>
+      <find>Me</find>
+      <find>val_map</find>
+      <find>recursive_node_mapping</find>
+      <find>cf</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -179,15 +164,16 @@
         <option value="$PROJECT_DIR$/node-mapping.py" />
         <option value="$PROJECT_DIR$/read_serial.py" />
         <option value="D:/Master/WinPython-64bit-3.5.4.0Qt5/python-3.5.4.amd64/Lib/site-packages/networkx/drawing/layout.py" />
-        <option value="D:/Master/WinPython-64bit-3.5.4.0Qt5/python-3.5.4.amd64/Lib/site-packages/networkx/drawing/nx_pylab.py" />
         <option value="$PROJECT_DIR$/dialogbox_test/app.py" />
         <option value="$PROJECT_DIR$/dialogbox_test/dialog.py" />
         <option value="$PROJECT_DIR$/serial_rw.py" />
-        <option value="$PROJECT_DIR$/node_mapping.py" />
-        <option value="$PROJECT_DIR$/serial_util.py" />
         <option value="$PROJECT_DIR$/dialog.py" />
-        <option value="$PROJECT_DIR$/circles.py" />
         <option value="$PROJECT_DIR$/main_window.py" />
+        <option value="$PROJECT_DIR$/circles.py" />
+        <option value="D:/Master/WinPython-64bit-3.5.4.0Qt5/python-3.5.4.amd64/Lib/site-packages/networkx/drawing/nx_pylab.py" />
+        <option value="$PROJECT_DIR$/node_mapping.py" />
+        <option value="$PROJECT_DIR$/top.py" />
+        <option value="$PROJECT_DIR$/serial_util.py" />
       </list>
     </option>
   </component>
@@ -220,6 +206,36 @@
             <path>
               <item name="firstGUI" type="b2602c69:ProjectViewProjectNode" />
               <item name="firstGUI" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="firstGUI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="firstGUI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.5.4 virtualenv at D:\Master\WinPython-64bit-3.5.4.0Qt5 &gt;" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="firstGUI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.5.4 virtualenv at D:\Master\WinPython-64bit-3.5.4.0Qt5 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="firstGUI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.5.4 virtualenv at D:\Master\WinPython-64bit-3.5.4.0Qt5 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+              <item name="networkx" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="firstGUI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.5.4 virtualenv at D:\Master\WinPython-64bit-3.5.4.0Qt5 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+              <item name="networkx" type="462c0819:PsiDirectoryNode" />
+              <item name="drawing" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -274,7 +290,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="firstGUI" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/circles.py" />
+      <option name="SCRIPT_NAME" value="D:\Kelti EMC\insinas 2017 gel 2\python\firstGUI\top.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -424,7 +440,14 @@
       <option name="project" value="LOCAL" />
       <updated>1516959472869</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="- Read serial is working&#10;- Node mapping is working&#10;* OMITTED: Draw circles and lines is working&#10;&#10;- Class Serial() has been made&#10;- Class NodeMapping() has been made&#10;- Class GetMeshFromSerialThread() instantiates Serial and function recursiveNodeMapping&#10;- Added serial setting label&#10;- Combine PyQt with Networkx in a window. Works well.&#10;&#10;- Added class BroadcastDialog and SingleDialog popups when a node is clicked on the GUI.&#10;- Added Set and Query functions on the popup dialogs, and tested together with ESP8266. They work! &#10;&#10;TODO:&#10;- interpret the set-reply and query-reply&#10;- query-reply should be added to the node's properties&#10;&#10;NOTES:&#10;- ESP8266 occasionally gives wrong mesh json string. The nodes mesh is much more complex than the actual. Observed, it happens when nodes are connected and disconnected. It is the problem of ESP8266 painlessMesh&#10;&#10;&#10;++ This commit is before cleaning up codes.">
+      <created>1545896811300</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1545896811300</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -443,13 +466,14 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17569546" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.49707174" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34700316" sideWeight="0.40409955" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.4385066" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.795754" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35804418" sideWeight="0.54831624" order="7" side_tool="true" content_ui="tabs" x="3" y="262" width="1360" height="203" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35804418" sideWeight="0.45168376" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35804418" sideWeight="0.4795022" order="7" side_tool="true" content_ui="tabs" x="3" y="262" width="1360" height="203" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35804418" sideWeight="0.5204978" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38012618" sideWeight="0.64128846" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38012618" sideWeight="0.6339678" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -457,7 +481,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.44436312" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -509,27 +532,11 @@
     <MESSAGE value="- Read serial is working&#10;- Node mapping is working&#10;- Draw circles and lines is working&#10;&#10;- Class Serial() has been made&#10;- Class NodeMapping() has been made&#10;- Serial() has been factored out from NodeMapping()&#10;* OMITTED: UI_window has a function to run node_visualizer() task thread. &#10;* OMITTED: Serial() instantiated in main(), passed in to UI_window.node_visualizer(). The serial works well&#10;- Created GetMeshFromSerialThread (QThread). It instantiate Class Serial and NodeMapping. When mesh topology BitArray2D available, it emits signal to Class UI_window so that the node topology gets repainted in the main window.&#10;&#10;NOTES:&#10;- ESP8266 occasionally gives wrong mesh json string. It is much more complex than the actual. Observed, it happens when nodes are connected and disconnected&#10;+" />
     <MESSAGE value="- Read serial is working&#10;- Node mapping is working&#10;* OMITTED: Draw circles and lines is working&#10;&#10;- Class Serial() has been made&#10;- Class NodeMapping() has been made&#10;- Class GetMeshFromSerialThread() instantiates Serial and function recursiveNodeMapping&#10;- Added serial setting label&#10;- Combine PyQt with Networkx in a window. Works well.&#10;&#10;NOTES:&#10;- ESP8266 occasionally gives wrong mesh json string. It is much more complex than the actual. Observed, it happens when nodes are connected and disconnected&#10;+" />
     <MESSAGE value="- Read serial is working&#10;- Node mapping is working&#10;* OMITTED: Draw circles and lines is working&#10;&#10;- Class Serial() has been made&#10;- Class NodeMapping() has been made&#10;- Class GetMeshFromSerialThread() instantiates Serial and function recursiveNodeMapping&#10;- Added serial setting label&#10;- Combine PyQt with Networkx in a window. Works well.&#10;&#10;- Added class BroadcastDialog and SingleDialog popups when a node is clicked on the GUI.&#10;- Added Set and Query functions on the popup dialogs, and tested together with ESP8266. They work! &#10;&#10;TODO:&#10;- interpret the set-reply and query-reply&#10;- query-reply should be added to the node's properties&#10;&#10;NOTES:&#10;- ESP8266 occasionally gives wrong mesh json string. The nodes mesh is much more complex than the actual. Observed, it happens when nodes are connected and disconnected&#10;+" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Read serial is working&#10;- Node mapping is working&#10;* OMITTED: Draw circles and lines is working&#10;&#10;- Class Serial() has been made&#10;- Class NodeMapping() has been made&#10;- Class GetMeshFromSerialThread() instantiates Serial and function recursiveNodeMapping&#10;- Added serial setting label&#10;- Combine PyQt with Networkx in a window. Works well.&#10;&#10;- Added class BroadcastDialog and SingleDialog popups when a node is clicked on the GUI.&#10;- Added Set and Query functions on the popup dialogs, and tested together with ESP8266. They work! &#10;&#10;TODO:&#10;- interpret the set-reply and query-reply&#10;- query-reply should be added to the node's properties&#10;&#10;NOTES:&#10;- ESP8266 occasionally gives wrong mesh json string. The nodes mesh is much more complex than the actual. Observed, it happens when nodes are connected and disconnected&#10;+" />
+    <MESSAGE value="- Read serial is working&#10;- Node mapping is working&#10;* OMITTED: Draw circles and lines is working&#10;&#10;- Class Serial() has been made&#10;- Class NodeMapping() has been made&#10;- Class GetMeshFromSerialThread() instantiates Serial and function recursiveNodeMapping&#10;- Added serial setting label&#10;- Combine PyQt with Networkx in a window. Works well.&#10;&#10;- Added class BroadcastDialog and SingleDialog popups when a node is clicked on the GUI.&#10;- Added Set and Query functions on the popup dialogs, and tested together with ESP8266. They work! &#10;&#10;TODO:&#10;- interpret the set-reply and query-reply&#10;- query-reply should be added to the node's properties&#10;&#10;NOTES:&#10;- ESP8266 occasionally gives wrong mesh json string. The nodes mesh is much more complex than the actual. Observed, it happens when nodes are connected and disconnected. It is the problem of ESP8266 painlessMesh&#10;&#10;&#10;++ This commit is before cleaning up codes." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Read serial is working&#10;- Node mapping is working&#10;* OMITTED: Draw circles and lines is working&#10;&#10;- Class Serial() has been made&#10;- Class NodeMapping() has been made&#10;- Class GetMeshFromSerialThread() instantiates Serial and function recursiveNodeMapping&#10;- Added serial setting label&#10;- Combine PyQt with Networkx in a window. Works well.&#10;&#10;- Added class BroadcastDialog and SingleDialog popups when a node is clicked on the GUI.&#10;- Added Set and Query functions on the popup dialogs, and tested together with ESP8266. They work! &#10;&#10;TODO:&#10;- interpret the set-reply and query-reply&#10;- query-reply should be added to the node's properties&#10;&#10;NOTES:&#10;- ESP8266 occasionally gives wrong mesh json string. The nodes mesh is much more complex than the actual. Observed, it happens when nodes are connected and disconnected. It is the problem of ESP8266 painlessMesh&#10;&#10;&#10;++ This commit is before cleaning up codes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/dialog.py</url>
-          <line>99</line>
-          <option name="timeStamp" value="97" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/serial_util.py</url>
-          <line>49</line>
-          <option name="timeStamp" value="101" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/dialog.py</url>
-          <line>84</line>
-          <option name="timeStamp" value="102" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -540,29 +547,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="103" />
+      <option name="time" value="104" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/list_comports.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_mapping.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="84" column="58" lean-forward="false" selection-start-line="84" selection-start-column="58" selection-end-line="84" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#122#142#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/serial_rw.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -574,30 +563,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="36" column="4" lean-forward="false" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/circles.py">
+    <entry file="file://$PROJECT_DIR$/top.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2533">
           <caret line="198" column="38" lean-forward="true" selection-start-line="198" selection-start-column="38" selection-end-line="198" selection-end-column="38" />
           <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#195#237#0" expanded="true" />
-            <element signature="e#1467#1498#0" expanded="false" />
-            <element signature="e#4076#5159#0" expanded="false" />
-            <element signature="e#4115#4128#0" expanded="false" />
-            <element signature="e#4857#4868#0" expanded="false" />
-            <element signature="e#5219#6233#0" expanded="false" />
-            <element signature="e#5330#5393#0" expanded="false" />
-            <element signature="e#6622#6680#0" expanded="false" />
-            <element signature="e#6914#7575#0" expanded="false" />
-            <element signature="e#6943#6978#0" expanded="false" />
-            <element signature="e#7617#11354#0" expanded="false" />
-            <element signature="e#7955#7983#0" expanded="false" />
+            <element signature="e#69#104#0" expanded="true" />
+            <element signature="e#3375#3422#0" expanded="false" />
+            <element signature="e#4307#4318#0" expanded="false" />
+            <element signature="e#5354#5417#0" expanded="false" />
+            <element signature="e#6828#6886#0" expanded="false" />
+            <element signature="e#8327#8355#0" expanded="false" />
+            <element signature="e#10799#10840#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -623,24 +604,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/circles.py">
+    <entry file="file://$PROJECT_DIR$/top.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1462">
           <caret line="136" column="13" lean-forward="false" selection-start-line="136" selection-start-column="13" selection-end-line="136" selection-end-column="13" />
           <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#195#237#0" expanded="true" />
-            <element signature="e#1467#1498#0" expanded="false" />
-            <element signature="e#4076#5159#0" expanded="false" />
-            <element signature="e#4115#4128#0" expanded="false" />
-            <element signature="e#4857#4868#0" expanded="false" />
-            <element signature="e#5219#6233#0" expanded="false" />
-            <element signature="e#5330#5393#0" expanded="false" />
-            <element signature="e#6622#6680#0" expanded="false" />
-            <element signature="e#6914#7575#0" expanded="false" />
-            <element signature="e#6943#6978#0" expanded="false" />
-            <element signature="e#7617#11354#0" expanded="false" />
-            <element signature="e#7955#7983#0" expanded="false" />
+            <element signature="e#69#104#0" expanded="true" />
+            <element signature="e#3375#3422#0" expanded="false" />
+            <element signature="e#4307#4318#0" expanded="false" />
+            <element signature="e#5354#5417#0" expanded="false" />
+            <element signature="e#6828#6886#0" expanded="false" />
+            <element signature="e#8327#8355#0" expanded="false" />
+            <element signature="e#10799#10840#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -649,9 +624,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="31" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -660,8 +633,11 @@
         <state relative-caret-position="2159">
           <caret line="169" column="0" lean-forward="true" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
           <folding>
-            <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#122#142#0" expanded="false" />
+            <element signature="e#12#25#0" expanded="false" />
+            <element signature="e#139#159#0" expanded="false" />
+            <element signature="e#11547#12418#0" expanded="false" />
+            <element signature="e#12431#14288#0" expanded="false" />
+            <element signature="e#14326#14346#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -680,24 +656,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/circles.py">
+    <entry file="file://$PROJECT_DIR$/top.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1258">
           <caret line="135" column="65" lean-forward="false" selection-start-line="135" selection-start-column="65" selection-end-line="135" selection-end-column="65" />
           <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#195#237#0" expanded="true" />
-            <element signature="e#1467#1498#0" expanded="false" />
-            <element signature="e#4076#5159#0" expanded="false" />
-            <element signature="e#4115#4128#0" expanded="false" />
-            <element signature="e#4857#4868#0" expanded="false" />
-            <element signature="e#5219#6233#0" expanded="false" />
-            <element signature="e#5330#5393#0" expanded="false" />
-            <element signature="e#6622#6680#0" expanded="false" />
-            <element signature="e#6914#7575#0" expanded="false" />
-            <element signature="e#6943#6978#0" expanded="false" />
-            <element signature="e#7617#11354#0" expanded="false" />
-            <element signature="e#7955#7983#0" expanded="false" />
+            <element signature="e#69#104#0" expanded="true" />
+            <element signature="e#3375#3422#0" expanded="false" />
+            <element signature="e#4307#4318#0" expanded="false" />
+            <element signature="e#5354#5417#0" expanded="false" />
+            <element signature="e#6828#6886#0" expanded="false" />
+            <element signature="e#8327#8355#0" expanded="false" />
+            <element signature="e#10799#10840#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -706,9 +676,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="782">
           <caret line="60" column="14" lean-forward="false" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -717,8 +685,11 @@
         <state relative-caret-position="136">
           <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
-            <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#122#142#0" expanded="false" />
+            <element signature="e#12#25#0" expanded="false" />
+            <element signature="e#139#159#0" expanded="false" />
+            <element signature="e#11547#12418#0" expanded="false" />
+            <element signature="e#12431#14288#0" expanded="false" />
+            <element signature="e#14326#14346#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -735,8 +706,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#122#142#0" expanded="false" />
+            <element signature="e#12#25#0" expanded="false" />
+            <element signature="e#139#159#0" expanded="false" />
+            <element signature="e#11547#12418#0" expanded="false" />
+            <element signature="e#12431#14288#0" expanded="false" />
+            <element signature="e#14326#14346#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -745,30 +719,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/circles.py">
+    <entry file="file://$PROJECT_DIR$/top.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1683">
           <caret line="144" column="58" lean-forward="true" selection-start-line="144" selection-start-column="8" selection-end-line="144" selection-end-column="58" />
           <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#195#237#0" expanded="true" />
-            <element signature="e#1467#1498#0" expanded="false" />
-            <element signature="e#4076#5159#0" expanded="false" />
-            <element signature="e#4115#4128#0" expanded="false" />
-            <element signature="e#4857#4868#0" expanded="false" />
-            <element signature="e#5219#6233#0" expanded="false" />
-            <element signature="e#5330#5393#0" expanded="false" />
-            <element signature="e#6622#6680#0" expanded="false" />
-            <element signature="e#6914#7575#0" expanded="false" />
-            <element signature="e#6943#6978#0" expanded="false" />
-            <element signature="e#7617#11354#0" expanded="false" />
-            <element signature="e#7955#7983#0" expanded="false" />
+            <element signature="e#69#104#0" expanded="true" />
+            <element signature="e#3375#3422#0" expanded="false" />
+            <element signature="e#4307#4318#0" expanded="false" />
+            <element signature="e#5354#5417#0" expanded="false" />
+            <element signature="e#6828#6886#0" expanded="false" />
+            <element signature="e#8327#8355#0" expanded="false" />
+            <element signature="e#10799#10840#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -929,91 +895,104 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dialog.py">
+    <entry file="file://$PROJECT_DIR$/main_window.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="78" column="30" lean-forward="false" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
-          <folding>
-            <element signature="e#1#27#0" expanded="true" />
-            <element signature="e#199#485#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="51">
+          <caret line="3" column="8" lean-forward="false" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://D:/Master/WinPython-64bit-3.5.4.0Qt5/python-3.5.4.amd64/Lib/site-packages/networkx/drawing/layout.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
+        <state relative-caret-position="1648">
           <caret line="112" column="38" lean-forward="false" selection-start-line="112" selection-start-column="38" selection-end-line="112" selection-end-column="38" />
           <folding>
-            <element signature="e#735#766#0" expanded="true" />
+            <element signature="e#735#766#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Master/WinPython-64bit-3.5.4.0Qt5/python-3.5.4.amd64/Lib/site-packages/networkx/drawing/nx_pylab.py">
+    <entry file="file://$PROJECT_DIR$/dialog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="387" column="24" lean-forward="false" selection-start-line="387" selection-start-column="24" selection-end-line="387" selection-end-column="24" />
+        <state relative-caret-position="158">
+          <caret line="86" column="8" lean-forward="false" selection-start-line="86" selection-start-column="8" selection-end-line="86" selection-end-column="8" />
           <folding>
-            <element signature="e#1021#2682#1" expanded="false" />
-            <element signature="e#3517#7542#1" expanded="false" />
-            <element signature="e#8589#10886#1" expanded="false" />
+            <element signature="e#1#27#0" expanded="true" />
+            <element signature="e#199#485#0" expanded="false" />
+            <element signature="e#3869#7423#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_mapping.py">
+    <entry file="file://D:/Master/WinPython-64bit-3.5.4.0Qt5/python-3.5.4.amd64/Lib/site-packages/networkx/classes/reportviews.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="373" column="66" lean-forward="false" selection-start-line="373" selection-start-column="66" selection-end-line="373" selection-end-column="66" />
+        <state relative-caret-position="138">
+          <caret line="190" column="0" lean-forward="false" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Master/WinPython-64bit-3.5.4.0Qt5/python-3.5.4.amd64/Lib/site-packages/networkx/classes/graph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="721" column="0" lean-forward="false" selection-start-line="721" selection-start-column="0" selection-end-line="721" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/top.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1809">
+          <caret line="260" column="52" lean-forward="false" selection-start-line="260" selection-start-column="33" selection-end-line="260" selection-end-column="52" />
           <folding>
-            <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#122#142#0" expanded="false" />
+            <element signature="e#69#104#0" expanded="true" />
+            <element signature="e#3375#3422#0" expanded="false" />
+            <element signature="e#4307#4318#0" expanded="false" />
+            <element signature="e#5354#5417#0" expanded="false" />
+            <element signature="e#6828#6886#0" expanded="false" />
+            <element signature="e#8327#8355#0" expanded="false" />
+            <element signature="e#10799#10840#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/serial_util.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-510">
-          <caret line="10" column="23" lean-forward="false" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+        <state relative-caret-position="339">
+          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding>
-            <element signature="e#0#34#0" expanded="true" />
-            <element signature="e#701#746#0" expanded="false" />
-            <element signature="e#2129#2154#0" expanded="false" />
-            <element signature="e#2294#2324#0" expanded="false" />
+            <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#590#615#0" expanded="false" />
+            <element signature="e#757#802#0" expanded="false" />
+            <element signature="e#2585#2610#0" expanded="false" />
+            <element signature="e#2750#2780#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/circles.py">
+    <entry file="file://$PROJECT_DIR$/node_mapping.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="289">
+          <caret line="230" column="0" lean-forward="true" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#195#237#0" expanded="true" />
-            <element signature="e#1467#1498#0" expanded="false" />
-            <element signature="e#4076#5159#0" expanded="false" />
-            <element signature="e#4115#4128#0" expanded="false" />
-            <element signature="e#4857#4868#0" expanded="false" />
-            <element signature="e#5219#6233#0" expanded="false" />
-            <element signature="e#5330#5393#0" expanded="false" />
-            <element signature="e#6622#6680#0" expanded="false" />
-            <element signature="e#6914#7575#0" expanded="false" />
-            <element signature="e#6943#6978#0" expanded="false" />
-            <element signature="e#7617#11354#0" expanded="false" />
-            <element signature="e#7955#7983#0" expanded="false" />
+            <element signature="e#12#25#0" expanded="false" />
+            <element signature="e#139#159#0" expanded="false" />
+            <element signature="e#11547#12418#0" expanded="false" />
+            <element signature="e#12431#14288#0" expanded="false" />
+            <element signature="e#14326#14346#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main_window.py">
+    <entry file="file://D:/Master/WinPython-64bit-3.5.4.0Qt5/python-3.5.4.amd64/Lib/site-packages/networkx/drawing/nx_pylab.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="116">
+          <caret line="264" column="19" lean-forward="true" selection-start-line="264" selection-start-column="19" selection-end-line="264" selection-end-column="19" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#1021#2682#1" expanded="false" />
+            <element signature="e#3586#7611#1" expanded="false" />
+            <element signature="e#8658#10955#1" expanded="false" />
           </folding>
         </state>
       </provider>
