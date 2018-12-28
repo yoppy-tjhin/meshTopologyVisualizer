@@ -2,11 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8d4f8bc-d7e2-4e82-ba0f-e5a0bd6b0e50" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/button_grid.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/button_grid2.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/firstgui.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/generator-stackoverflow.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/generator.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/grid-layout.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/grid-layout2.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/main.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/myform.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/qt_gui/button_grid.ui" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/qt_gui/circles.ui" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/qt_gui/myform.ui" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/read_serial_try.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/serial_rw.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/window.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_window.py" afterPath="$PROJECT_DIR$/main_window.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_mapping.py" afterPath="$PROJECT_DIR$/node_mapping.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/serial_util.py" afterPath="$PROJECT_DIR$/serial_util.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/circles.py" afterPath="$PROJECT_DIR$/top.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +31,8 @@
       <file leaf-file-name="serial_util.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/serial_util.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+            <state relative-caret-position="697">
+              <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
                 <element signature="e#590#615#0" expanded="false" />
@@ -37,10 +48,9 @@
         <entry file="file://$PROJECT_DIR$/node_mapping.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
-              <caret line="230" column="0" lean-forward="true" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
+              <caret line="230" column="0" lean-forward="false" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
               <folding>
                 <element signature="e#12#25#0" expanded="false" />
-                <element signature="e#139#159#0" expanded="false" />
                 <element signature="e#11547#12418#0" expanded="false" />
                 <element signature="e#12431#14288#0" expanded="false" />
                 <element signature="e#14326#14346#0" expanded="false" />
@@ -49,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nx_pylab.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="nx_pylab.py" pinned="false" current-in-tab="false">
         <entry file="file://D:/Master/WinPython-64bit-3.5.4.0Qt5/python-3.5.4.amd64/Lib/site-packages/networkx/drawing/nx_pylab.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="264" column="19" lean-forward="true" selection-start-line="264" selection-start-column="19" selection-end-line="264" selection-end-column="19" />
+            <state relative-caret-position="136">
+              <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding>
                 <element signature="e#1021#2682#1" expanded="false" />
                 <element signature="e#3586#7611#1" expanded="false" />
@@ -63,10 +73,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="list_comports.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/list_comports.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="top.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/top.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1809">
+            <state relative-caret-position="3757">
               <caret line="260" column="52" lean-forward="false" selection-start-line="260" selection-start-column="33" selection-end-line="260" selection-end-column="52" />
               <folding>
                 <element signature="e#69#104#0" expanded="true" />
@@ -84,7 +104,7 @@
       <file leaf-file-name="dialog.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dialog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
+            <state relative-caret-position="1343">
               <caret line="86" column="8" lean-forward="false" selection-start-line="86" selection-start-column="8" selection-end-line="86" selection-end-column="8" />
               <folding>
                 <element signature="e#1#27#0" expanded="true" />
@@ -198,44 +218,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="firstGUI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstGUI" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstGUI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="firstGUI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.5.4 virtualenv at D:\Master\WinPython-64bit-3.5.4.0Qt5 &gt;" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="firstGUI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.5.4 virtualenv at D:\Master\WinPython-64bit-3.5.4.0Qt5 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstGUI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.5.4 virtualenv at D:\Master\WinPython-64bit-3.5.4.0Qt5 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="networkx" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstGUI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.5.4 virtualenv at D:\Master\WinPython-64bit-3.5.4.0Qt5 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="networkx" type="462c0819:PsiDirectoryNode" />
-              <item name="drawing" type="462c0819:PsiDirectoryNode" />
+              <item name="Mesh Visualizer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mesh Visualizer" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -245,7 +235,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="Console" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Testing" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="ChangesBrowser.SHOW_FLATTEN" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -447,7 +437,14 @@
       <option name="project" value="LOCAL" />
       <updated>1545896811300</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="- Read serial is working&#10;- Node mapping is working&#10;* OMITTED: Draw circles and lines is working&#10;&#10;- Class Serial() has been made&#10;- Class NodeMapping() has been made&#10;- Class GetMeshFromSerialThread() instantiates Serial and function recursiveNodeMapping&#10;- Added serial setting label&#10;- Combine PyQt with Networkx in a window. Works well.&#10;&#10;- Added class BroadcastDialog and SingleDialog popups when a node is clicked on the GUI.&#10;- Added Set and Query functions on the popup dialogs, and tested together with ESP8266. They work! &#10;&#10;TODO:&#10;- interpret the set-reply and query-reply&#10;- query-reply should be added to the node's properties&#10;&#10;NOTES:&#10;- ESP8266 occasionally gives wrong mesh json string. The nodes mesh is much more complex than the actual. Observed, it happens when nodes are connected and disconnected. It is the problem of ESP8266 painlessMesh&#10;&#10;&#10;++ This commit is after cleaning up codes.">
+      <created>1545965409422</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1545965409422</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView">
@@ -463,17 +460,16 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17569546" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19253294" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.49707174" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34700316" sideWeight="0.40409955" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.4385066" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35804418" sideWeight="0.51756954" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.795754" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35804418" sideWeight="0.4795022" order="7" side_tool="true" content_ui="tabs" x="3" y="262" width="1360" height="203" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35804418" sideWeight="0.5204978" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35804418" sideWeight="0.48243046" order="7" side_tool="true" content_ui="tabs" x="3" y="262" width="1360" height="203" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38012618" sideWeight="0.6339678" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -481,6 +477,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.4385066" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -533,7 +530,8 @@
     <MESSAGE value="- Read serial is working&#10;- Node mapping is working&#10;* OMITTED: Draw circles and lines is working&#10;&#10;- Class Serial() has been made&#10;- Class NodeMapping() has been made&#10;- Class GetMeshFromSerialThread() instantiates Serial and function recursiveNodeMapping&#10;- Added serial setting label&#10;- Combine PyQt with Networkx in a window. Works well.&#10;&#10;NOTES:&#10;- ESP8266 occasionally gives wrong mesh json string. It is much more complex than the actual. Observed, it happens when nodes are connected and disconnected&#10;+" />
     <MESSAGE value="- Read serial is working&#10;- Node mapping is working&#10;* OMITTED: Draw circles and lines is working&#10;&#10;- Class Serial() has been made&#10;- Class NodeMapping() has been made&#10;- Class GetMeshFromSerialThread() instantiates Serial and function recursiveNodeMapping&#10;- Added serial setting label&#10;- Combine PyQt with Networkx in a window. Works well.&#10;&#10;- Added class BroadcastDialog and SingleDialog popups when a node is clicked on the GUI.&#10;- Added Set and Query functions on the popup dialogs, and tested together with ESP8266. They work! &#10;&#10;TODO:&#10;- interpret the set-reply and query-reply&#10;- query-reply should be added to the node's properties&#10;&#10;NOTES:&#10;- ESP8266 occasionally gives wrong mesh json string. The nodes mesh is much more complex than the actual. Observed, it happens when nodes are connected and disconnected&#10;+" />
     <MESSAGE value="- Read serial is working&#10;- Node mapping is working&#10;* OMITTED: Draw circles and lines is working&#10;&#10;- Class Serial() has been made&#10;- Class NodeMapping() has been made&#10;- Class GetMeshFromSerialThread() instantiates Serial and function recursiveNodeMapping&#10;- Added serial setting label&#10;- Combine PyQt with Networkx in a window. Works well.&#10;&#10;- Added class BroadcastDialog and SingleDialog popups when a node is clicked on the GUI.&#10;- Added Set and Query functions on the popup dialogs, and tested together with ESP8266. They work! &#10;&#10;TODO:&#10;- interpret the set-reply and query-reply&#10;- query-reply should be added to the node's properties&#10;&#10;NOTES:&#10;- ESP8266 occasionally gives wrong mesh json string. The nodes mesh is much more complex than the actual. Observed, it happens when nodes are connected and disconnected. It is the problem of ESP8266 painlessMesh&#10;&#10;&#10;++ This commit is before cleaning up codes." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Read serial is working&#10;- Node mapping is working&#10;* OMITTED: Draw circles and lines is working&#10;&#10;- Class Serial() has been made&#10;- Class NodeMapping() has been made&#10;- Class GetMeshFromSerialThread() instantiates Serial and function recursiveNodeMapping&#10;- Added serial setting label&#10;- Combine PyQt with Networkx in a window. Works well.&#10;&#10;- Added class BroadcastDialog and SingleDialog popups when a node is clicked on the GUI.&#10;- Added Set and Query functions on the popup dialogs, and tested together with ESP8266. They work! &#10;&#10;TODO:&#10;- interpret the set-reply and query-reply&#10;- query-reply should be added to the node's properties&#10;&#10;NOTES:&#10;- ESP8266 occasionally gives wrong mesh json string. The nodes mesh is much more complex than the actual. Observed, it happens when nodes are connected and disconnected. It is the problem of ESP8266 painlessMesh&#10;&#10;&#10;++ This commit is before cleaning up codes." />
+    <MESSAGE value="- Read serial is working&#10;- Node mapping is working&#10;* OMITTED: Draw circles and lines is working&#10;&#10;- Class Serial() has been made&#10;- Class NodeMapping() has been made&#10;- Class GetMeshFromSerialThread() instantiates Serial and function recursiveNodeMapping&#10;- Added serial setting label&#10;- Combine PyQt with Networkx in a window. Works well.&#10;&#10;- Added class BroadcastDialog and SingleDialog popups when a node is clicked on the GUI.&#10;- Added Set and Query functions on the popup dialogs, and tested together with ESP8266. They work! &#10;&#10;TODO:&#10;- interpret the set-reply and query-reply&#10;- query-reply should be added to the node's properties&#10;&#10;NOTES:&#10;- ESP8266 occasionally gives wrong mesh json string. The nodes mesh is much more complex than the actual. Observed, it happens when nodes are connected and disconnected. It is the problem of ESP8266 painlessMesh&#10;&#10;&#10;++ This commit is after cleaning up codes." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Read serial is working&#10;- Node mapping is working&#10;* OMITTED: Draw circles and lines is working&#10;&#10;- Class Serial() has been made&#10;- Class NodeMapping() has been made&#10;- Class GetMeshFromSerialThread() instantiates Serial and function recursiveNodeMapping&#10;- Added serial setting label&#10;- Combine PyQt with Networkx in a window. Works well.&#10;&#10;- Added class BroadcastDialog and SingleDialog popups when a node is clicked on the GUI.&#10;- Added Set and Query functions on the popup dialogs, and tested together with ESP8266. They work! &#10;&#10;TODO:&#10;- interpret the set-reply and query-reply&#10;- query-reply should be added to the node's properties&#10;&#10;NOTES:&#10;- ESP8266 occasionally gives wrong mesh json string. The nodes mesh is much more complex than the actual. Observed, it happens when nodes are connected and disconnected. It is the problem of ESP8266 painlessMesh&#10;&#10;&#10;++ This commit is after cleaning up codes." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -634,7 +632,6 @@
           <caret line="169" column="0" lean-forward="true" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
           <folding>
             <element signature="e#12#25#0" expanded="false" />
-            <element signature="e#139#159#0" expanded="false" />
             <element signature="e#11547#12418#0" expanded="false" />
             <element signature="e#12431#14288#0" expanded="false" />
             <element signature="e#14326#14346#0" expanded="false" />
@@ -686,7 +683,6 @@
           <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
             <element signature="e#12#25#0" expanded="false" />
-            <element signature="e#139#159#0" expanded="false" />
             <element signature="e#11547#12418#0" expanded="false" />
             <element signature="e#12431#14288#0" expanded="false" />
             <element signature="e#14326#14346#0" expanded="false" />
@@ -707,7 +703,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#12#25#0" expanded="false" />
-            <element signature="e#139#159#0" expanded="false" />
             <element signature="e#11547#12418#0" expanded="false" />
             <element signature="e#12431#14288#0" expanded="false" />
             <element signature="e#14326#14346#0" expanded="false" />
@@ -867,13 +862,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/list_comports.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/Master/WinPython-64bit-3.5.4.0Qt5/python-3.5.4.amd64/Lib/site-packages/serial/serialwin32.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="206">
@@ -915,7 +903,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dialog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
+        <state relative-caret-position="1343">
           <caret line="86" column="8" lean-forward="false" selection-start-line="86" selection-start-column="8" selection-end-line="86" selection-end-column="8" />
           <folding>
             <element signature="e#1#27#0" expanded="true" />
@@ -929,7 +917,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="190" column="0" lean-forward="false" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -937,13 +924,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="206">
           <caret line="721" column="0" lean-forward="false" selection-start-line="721" selection-start-column="0" selection-end-line="721" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/top.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1809">
+        <state relative-caret-position="3757">
           <caret line="260" column="52" lean-forward="false" selection-start-line="260" selection-start-column="33" selection-end-line="260" selection-end-column="52" />
           <folding>
             <element signature="e#69#104#0" expanded="true" />
@@ -959,8 +945,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/serial_util.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        <state relative-caret-position="697">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
             <element signature="e#590#615#0" expanded="false" />
@@ -974,10 +960,9 @@
     <entry file="file://$PROJECT_DIR$/node_mapping.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
-          <caret line="230" column="0" lean-forward="true" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
+          <caret line="230" column="0" lean-forward="false" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
           <folding>
             <element signature="e#12#25#0" expanded="false" />
-            <element signature="e#139#159#0" expanded="false" />
             <element signature="e#11547#12418#0" expanded="false" />
             <element signature="e#12431#14288#0" expanded="false" />
             <element signature="e#14326#14346#0" expanded="false" />
@@ -987,13 +972,21 @@
     </entry>
     <entry file="file://D:/Master/WinPython-64bit-3.5.4.0Qt5/python-3.5.4.amd64/Lib/site-packages/networkx/drawing/nx_pylab.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="264" column="19" lean-forward="true" selection-start-line="264" selection-start-column="19" selection-end-line="264" selection-end-column="19" />
+        <state relative-caret-position="136">
+          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding>
             <element signature="e#1021#2682#1" expanded="false" />
             <element signature="e#3586#7611#1" expanded="false" />
             <element signature="e#8658#10955#1" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/list_comports.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
